@@ -11,7 +11,7 @@ module.exports = {
   opts: false,
   reporter: 'spec',
   //reporter: 'mocha-allure-reporter',  
-  reporterOption: [ 'targetDir=' + allureArtifactsDir ],
+  //reporterOption: [ 'targetDir=' + allureArtifactsDir ],
   ui: 'bdd',
-  parallel: true
+  parallel: false
 }
