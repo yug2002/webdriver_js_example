@@ -17,16 +17,12 @@ describe('01 check home page', () => {
     await home.open()
   });
 
-  it('check that home page is opened', async () => {  
-    // let home = pages.getPage('home', browser);   
-    // await home.open()
+  it('check that home page is opened', async () => { 
     const google = await home.googleImg();       
     expect(await google.isDisplayed()).to.be.true;    
   });
 
   it('check that searching works correctly', async () => {
-    // let home = pages.getPage('home', browser);   
-    // await home.open()
     const input = await home.searchingInput();
     await input.type(data.testWord);
     const results = await home.resultItems();

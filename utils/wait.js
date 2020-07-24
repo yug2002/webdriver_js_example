@@ -5,7 +5,7 @@ import * as data from '../data/constants/constants';
 const delay = data.timeout;
 
 export const waitFor = (predicate, milliseconds = delay) => new Promise (resolve => {
-  const dl = 100;
+  const dl = 200;
   let mls = milliseconds;
   const f = async () => {
     mls -= dl;
