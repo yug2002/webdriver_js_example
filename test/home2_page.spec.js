@@ -5,28 +5,25 @@ import * as pages from '../lib/pages/page_factory';
 import Browser from '../lib/browser';
 import { expect } from "chai";
 
-describe('01 check home page', () => { 
+describe('02 check home page', () => { 
   let browser;
   let home; 
+  //let home = pages.getPage('home');
   afterEach(async () => {
-    return await browser.closeInstance();        
+    await browser.closeInstance();        
   });
-  beforeEach(async () => {  
+  beforeEach(async () => {   
     browser = new Browser();
     home = pages.getPage('home', browser);
-    await home.open()
+    return await home.open()
   });
 
-  it('check that home page is opened', async () => {  
-    // let home = pages.getPage('home', browser);   
-    // await home.open()
+  it('check that home page is opened', async () => {   
     const google = await home.googleImg();       
     expect(await google.isDisplayed()).to.be.true;    
   });
 
   it('check that searching works correctly', async () => {
-    // let home = pages.getPage('home', browser);   
-    // await home.open()
     const input = await home.searchingInput();
     await input.type(data.testWord);
     const results = await home.resultItems();
