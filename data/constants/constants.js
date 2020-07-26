@@ -46,20 +46,10 @@ export const componentLocators = {
   }    
 }
 
-export const leftItems = {
-  myDay: {
-    name: 'My Day'
-  },
-  important: {
-    name: 'Important'
-  },
-  planned: {
-    name: 'Planned'   
-  },
-  assignedToYou: {
-    name: 'Assigned to you'
-  },
-  tasks: {
-    name: 'Tasks'
-  }
-}
+export const leftItems = [
+  { name: 'My Day' },
+  { name: 'Important' },
+  { name: 'Planned' },
+  { name: 'Assigned to you' },
+  { name: 'Tasks' }
+]

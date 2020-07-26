@@ -1,8 +1,8 @@
 'use strict'
-import pages from '../lib/pages/page_factory';
+//import pages from '../lib/pages/page_factory';
 import { login, password } from '../data/constants/constants'; 
 
-export const signIn = async (browser) => {
+export const signIn = async (browser, pages) => {
   const home = pages.getPage('home', browser);
   const loginPage = pages.getPage('login', browser);
   const todoPage = pages.getPage('todo', browser); 

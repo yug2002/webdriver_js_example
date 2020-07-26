@@ -5,20 +5,24 @@ import { expect } from 'chai';
 import { signIn as login } from '../utils/helpers';
 
 describe('the work on ToDo page', () => {
-  this.browser = null;
-
+  let browser = null;
+  
   describe('check that left bar works correctly', () => {
     beforeEach(async () => {
-      this.browser = new Browser();  
-      await login(this.browser);
+      browser = new Browser();  
+      await login(browser, pages);
+    });
+    afterEach(async () => {
+      await browser.closeInstance()
     });
 
     it('check that left sidebar contains correct menu items', async () => {
-      const todo = pages.getPage('todo', this.browser);
-      const sideBar = await todo.sideBar();
-      let items = await sideBar.menuItems();
-      const results = await Promise.all(items.map(async element => await element.getText()));
-      
+      const todo = pages.getPage('todo', browser);
+      const sideBar = await todo.sideBar();      
+      let items = await sideBar.menuItems();     
+      let actualResults = await Promise.all(items.map(async element => await element.getText()));
+      let expectedResults = data.leftItems.map(task => task.name);
+      expect(actualResults.sort().toString()).to.be.equals(expectedResults.sort().toString());
     });
   });
 });
