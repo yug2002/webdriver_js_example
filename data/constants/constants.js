@@ -9,7 +9,8 @@ export const todoUrl = 'https://todo.microsoft.com/tasks/';
 //pages
 export const pagesLocators = {
   loginPage: {
-    personalAccount: `//div[@class = 'row tile'][.//*[text() = 'Personal account']]`
+    personalAccount: `//div[@class = 'row tile'][.//*[text() = 'Personal account']]`,
+    errorElement: error => `//div[@id = '${error}Error']`
   },
   homePage: {
     title: `//h1/span`,

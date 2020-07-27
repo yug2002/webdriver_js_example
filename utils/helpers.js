@@ -1,5 +1,4 @@
 'use strict'
-//import pages from '../lib/pages/page_factory';
 import { login, password } from '../data/constants/constants'; 
 
 export const signIn = async (browser, pages) => {
@@ -20,4 +19,10 @@ export const signIn = async (browser, pages) => {
   submit = await loginPage.inputByType('submit');
   await submit.click();
   const title = await todoPage.pageTitle();
-}
+};
+
+export const generatedString = (num) => {
+  const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let str = Array.from(possible).map(() => possible[Math.floor(Math.random() * possible.length)]);
+  return str.slice(0, num).join('');
+};
